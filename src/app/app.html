@@ -1,0 +1,1004 @@
+<div class="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-indigo-500 selection:text-white">
+  <!-- Top Navigation Header -->
+  <header id="main-header" class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-pink-500 via-purple-600 to-indigo-500 p-0.5 shadow-md flex items-center justify-center">
+          <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
+            <mat-icon class="text-pink-400 text-xl">palette</mat-icon>
+          </div>
+        </div>
+        <div>
+          <h1 class="text-base sm:text-lg font-bold tracking-tight text-white flex items-center gap-2">
+            Social Icons Animation &amp; Hover Studio
+            <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">
+              Recommendation Guide
+            </span>
+          </h1>
+          <p class="text-xs text-slate-400 hidden sm:block">Wix &amp; Web Builder Social Icons Interactive Tester</p>
+        </div>
+      </div>
+
+      <!-- Language Switcher & Quick Action -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <div class="inline-flex rounded-lg bg-slate-800 p-1 border border-slate-700">
+          <button
+            id="lang-roman-urdu-btn"
+            type="button"
+            (click)="lang.set('roman-urdu')"
+            [class]="lang() === 'roman-urdu' ? 'bg-indigo-600 text-white font-medium shadow-sm' : 'text-slate-400 hover:text-white'"
+            class="px-3 py-1 text-xs rounded-md transition-all flex items-center gap-1 cursor-pointer"
+          >
+            <span>Roman Urdu</span>
+          </button>
+          <button
+            id="lang-english-btn"
+            type="button"
+            (click)="lang.set('english')"
+            [class]="lang() === 'english' ? 'bg-indigo-600 text-white font-medium shadow-sm' : 'text-slate-400 hover:text-white'"
+            class="px-3 py-1 text-xs rounded-md transition-all flex items-center gap-1 cursor-pointer"
+          >
+            <span>English</span>
+          </button>
+        </div>
+
+        <button
+          id="btn-apply-recommended"
+          type="button"
+          (click)="setExactScreenshotPreset()"
+          class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-pink-500 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white text-xs font-semibold shadow-md transition-all active:scale-95 cursor-pointer"
+        >
+          <mat-icon class="text-sm">auto_fix_high</mat-icon>
+          <span>Screenshot Match Preset</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+    <!-- Direct Recommendation Banner (Matches User's Screenshots Exactly) -->
+    <section id="recommendation-banner" class="relative overflow-hidden rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-indigo-950/60 via-slate-900/90 to-purple-950/40 p-5 sm:p-6 shadow-xl backdrop-blur-md">
+      <div class="absolute -right-16 -top-16 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+        <div class="space-y-3 flex-1">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-semibold">
+            <mat-icon class="text-sm text-pink-400">recommend</mat-icon>
+            @if (lang() === 'roman-urdu') {
+              <span>Aapke Question ka Direct Answer</span>
+            } @else {
+              <span>Direct Answer &amp; Best Settings for Your Request</span>
+            }
+          </div>
+
+          @if (lang() === 'roman-urdu') {
+            <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+              Aapko <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-300 to-indigo-300 font-extrabold">&quot;Scale&quot; Animation</span> or <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 font-extrabold">&quot;Grow&quot; / &quot;Lift&quot; Hover</span> choose karna chahiye!
+            </h2>
+            <p class="text-slate-300 text-sm leading-relaxed max-w-3xl">
+              Aapke screenshots (Image 1 &amp; 2) me icons normal haalat me gray/dark hain, aur jab unpar mouse hover hota hai to wo <strong>zoom/grow ho kar unke authentic brand background color</strong> (jaise Instagram ka gradient aur TikTok ka cyan/blue circle) me tabdeel ho jaate hain.
+            </p>
+          } @else {
+            <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+              Recommended: <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-300 to-indigo-300 font-extrabold">&quot;Scale&quot; Animation</span> + <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 font-extrabold">&quot;Grow&quot; or &quot;Lift&quot; Hover Effect</span>
+            </h2>
+            <p class="text-slate-300 text-sm leading-relaxed max-w-3xl">
+              In your screenshots (Image 1 &amp; 2), the social icons are subtle monochrome by default, and upon hovering, the targeted icon <strong>smoothly expands and lights up with its vibrant circular brand color / gradient</strong> (e.g., Instagram sunset gradient or TikTok cyan circle).
+            </p>
+          }
+
+          <!-- Recommendation Pills -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 pt-2">
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="w-9 h-9 rounded-lg bg-pink-500/20 text-pink-400 flex items-center justify-center font-bold text-xs">
+                1
+              </div>
+              <div>
+                <p class="text-xs text-slate-400">Animation (Page Load)</p>
+                <p class="text-sm font-semibold text-white">Scale <span class="text-pink-400 text-xs">(Selected in img 3)</span></p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="w-9 h-9 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-xs">
+                2
+              </div>
+              <div>
+                <p class="text-xs text-slate-400">Hover Effect</p>
+                <p class="text-sm font-semibold text-white">Grow <span class="text-emerald-400 text-xs">or Lift</span></p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs">
+                3
+              </div>
+              <div>
+                <p class="text-xs text-slate-400">Color Transition</p>
+                <p class="text-sm font-semibold text-white">Color-Pop on Hover</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col gap-2 w-full lg:w-auto shrink-0">
+          <button
+            id="btn-apply-recommended-banner"
+            type="button"
+            (click)="setExactScreenshotPreset()"
+            class="px-5 py-3 rounded-xl bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 transition-all active:scale-95 cursor-pointer"
+          >
+            <mat-icon class="text-base">play_circle_filled</mat-icon>
+            <span>Test This Preset</span>
+          </button>
+          <button
+            id="btn-replay-anim"
+            type="button"
+            (click)="replayAnimation()"
+            class="px-4 py-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 text-slate-200 border border-slate-700 text-xs font-semibold flex items-center justify-center gap-2 transition-all active:scale-95 cursor-pointer"
+          >
+            <mat-icon class="text-sm">replay</mat-icon>
+            <span>Replay Entrance Animation</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Workspace Grid: Live Preview (Left/Top) & Web Builder Settings (Right/Bottom) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+      <!-- LEFT: Live Interactive Preview Stage (7 Cols) -->
+      <section id="preview-stage" class="lg:col-span-7 space-y-6">
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/90 overflow-hidden shadow-xl">
+          
+          <!-- Stage Top Bar -->
+          <div class="px-5 py-4 border-b border-slate-800 flex flex-wrap items-center justify-between gap-3 bg-slate-900/50">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+              <span class="ml-2 text-xs font-semibold text-slate-300 uppercase tracking-wider">Live Preview Stage</span>
+            </div>
+
+            <!-- Canvas Background Switcher -->
+            <div class="flex items-center gap-1 bg-slate-800 p-1 rounded-lg border border-slate-700/80">
+              <span class="text-[11px] text-slate-400 px-2 font-medium">Background:</span>
+              <button
+                id="bg-light-btn"
+                type="button"
+                (click)="previewBg.set('light')"
+                [class]="previewBg() === 'light' ? 'bg-white text-slate-900 font-bold shadow-xs' : 'text-slate-400 hover:text-white'"
+                class="px-2.5 py-0.5 text-xs rounded transition-all cursor-pointer"
+              >
+                Light (Wix)
+              </button>
+              <button
+                id="bg-dark-btn"
+                type="button"
+                (click)="previewBg.set('dark')"
+                [class]="previewBg() === 'dark' ? 'bg-slate-950 text-white font-bold shadow-xs' : 'text-slate-400 hover:text-white'"
+                class="px-2.5 py-0.5 text-xs rounded transition-all cursor-pointer"
+              >
+                Dark
+              </button>
+              <button
+                id="bg-hero-btn"
+                type="button"
+                (click)="previewBg.set('hero')"
+                [class]="previewBg() === 'hero' ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold' : 'text-slate-400 hover:text-white'"
+                class="px-2.5 py-0.5 text-xs rounded transition-all cursor-pointer"
+              >
+                Hero
+              </button>
+            </div>
+          </div>
+
+          <!-- The Canvas Area -->
+          <div
+            class="min-h-[280px] sm:min-h-[340px] flex flex-col items-center justify-center p-8 transition-colors duration-300 relative overflow-hidden"
+            [class.bg-white]="previewBg() === 'light'"
+            [class.text-slate-800]="previewBg() === 'light'"
+            [class.bg-slate-950]="previewBg() === 'dark'"
+            [class.bg-gradient-to-br]="previewBg() === 'hero'"
+            [class.from-slate-900]="previewBg() === 'hero'"
+            [class.via-indigo-950]="previewBg() === 'hero'"
+            [class.to-slate-900]="previewBg() === 'hero'"
+          >
+            <!-- Instruction floating tag -->
+            <div class="mb-8 text-center space-y-1">
+              <span
+                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold shadow-xs"
+                [class.bg-slate-100]="previewBg() === 'light'"
+                [class.text-slate-600]="previewBg() === 'light'"
+                [class.border]="previewBg() === 'light'"
+                [class.border-slate-300]="previewBg() === 'light'"
+                [class.bg-slate-800/80]="previewBg() !== 'light'"
+                [class.text-slate-300]="previewBg() !== 'light'"
+                [class.border-slate-700]="previewBg() !== 'light'"
+              >
+                <mat-icon class="text-sm text-indigo-400">touch_app</mat-icon>
+                @if (lang() === 'roman-urdu') {
+                  <span>Icons par mouse hover karke effect check karein!</span>
+                } @else {
+                  <span>Hover over any icon to preview effect!</span>
+                }
+              </span>
+              <p
+                class="text-xs"
+                [class.text-slate-500]="previewBg() === 'light'"
+                [class.text-slate-400]="previewBg() !== 'light'"
+              >
+                Current: <strong>{{ selectedAnimation() | uppercase }}</strong> entry + <strong>{{ selectedHoverEffect() | uppercase }}</strong> hover
+              </p>
+            </div>
+
+            <!-- The Social Icons Row -->
+            <div
+              [id]="'icons-stage-container-' + animationKey()"
+              class="flex flex-wrap items-center justify-center transition-all duration-300"
+              [style.gap.px]="gapSize()"
+            >
+              @for (item of icons(); track item.id; let i = $index) {
+                <div
+                  [id]="'social-icon-btn-' + item.id"
+                  class="group relative select-none transition-all duration-300 cursor-pointer flex items-center justify-center shrink-0"
+                  [style.width.px]="iconSize()"
+                  [style.height.px]="iconSize()"
+                  [style.animation-delay.ms]="i * 70"
+                  [class.rounded-full]="shape() === 'circle'"
+                  [class.rounded-2xl]="shape() === 'squircle'"
+                  [class.rounded-md]="shape() === 'minimal'"
+                  [class.animate-entry-fade]="selectedAnimation() === 'fade'"
+                  [class.animate-entry-scale]="selectedAnimation() === 'scale'"
+                  [class.animate-entry-slide]="selectedAnimation() === 'slide'"
+                  [class.animate-entry-slide-left]="selectedAnimation() === 'slide-left'"
+                  [class.animate-entry-slide-right]="selectedAnimation() === 'slide-right'"
+                  [class.animate-entry-blur-in]="selectedAnimation() === 'blur-in'"
+                  [class.animate-entry-rise]="selectedAnimation() === 'rise'"
+                  [class.hover:-translate-y-2]="selectedHoverEffect() === 'lift'"
+                  [class.hover:shadow-xl]="selectedHoverEffect() === 'lift'"
+                  [class.hover:scale-115]="selectedHoverEffect() === 'grow'"
+                  [class.hover:ring-4]="selectedHoverEffect() === 'border'"
+                  [class.hover:ring-indigo-400/80]="selectedHoverEffect() === 'border'"
+                >
+                  <!-- Background Layer for Color Pop Effect (Screenshots Style) -->
+                  @if (iconStyle() === 'color-pop') {
+                    <div
+                      class="absolute inset-0 transition-all duration-300 opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100"
+                      [class.rounded-full]="shape() === 'circle'"
+                      [class.rounded-2xl]="shape() === 'squircle'"
+                      [class.rounded-md]="shape() === 'minimal'"
+                      [style.background]="item.gradient ? item.gradient : item.brandColor"
+                      [class.shadow-lg]="selectedHoverEffect() === 'glow' || selectedHoverEffect() === 'lift'"
+                      [style.box-shadow]="selectedHoverEffect() === 'glow' ? '0 0 22px ' + item.brandColor : undefined"
+                    ></div>
+                  }
+
+                  <!-- Always Solid Brand Colors Mode -->
+                  @if (iconStyle() === 'always-brand') {
+                    <div
+                      class="absolute inset-0 transition-all duration-300"
+                      [class.rounded-full]="shape() === 'circle'"
+                      [class.rounded-2xl]="shape() === 'squircle'"
+                      [class.rounded-md]="shape() === 'minimal'"
+                      [style.background]="item.gradient ? item.gradient : item.brandColor"
+                      [style.box-shadow]="selectedHoverEffect() === 'glow' ? '0 0 20px ' + item.brandColor : undefined"
+                    ></div>
+                  }
+
+                  <!-- Outline Mode -->
+                  @if (iconStyle() === 'outline') {
+                    <div
+                      class="absolute inset-0 border-2 transition-all duration-300 group-hover:border-transparent group-hover:opacity-100"
+                      [class.border-slate-300]="previewBg() === 'light'"
+                      [class.border-slate-700]="previewBg() !== 'light'"
+                      [class.rounded-full]="shape() === 'circle'"
+                      [class.rounded-2xl]="shape() === 'squircle'"
+                      [style.background]="'transparent'"
+                      [style.group-hover.background]="item.gradient ? item.gradient : item.brandColor"
+                    ></div>
+                  }
+
+                  <!-- Shine Light Ray Overlay when Shine is active -->
+                  @if (selectedHoverEffect() === 'shine') {
+                    <div class="absolute inset-0 overflow-hidden rounded-full pointer-events-none opacity-0 group-hover:opacity-100">
+                      <div class="absolute -top-1/2 -bottom-1/2 w-1/2 bg-white/40 skew-x-[-25deg] transform group-hover:translate-x-[250%] transition-transform duration-700 ease-out"></div>
+                    </div>
+                  }
+
+                  <!-- Icon SVG Symbol -->
+                  <div class="relative z-10 flex items-center justify-center transition-colors duration-300">
+                    <svg
+                      [attr.viewBox]="item.viewBox || '0 0 24 24'"
+                      class="w-5 h-5 transition-all duration-300"
+                      [class.text-slate-600]="iconStyle() === 'color-pop' && previewBg() === 'light'"
+                      [class.text-slate-300]="iconStyle() === 'color-pop' && previewBg() !== 'light'"
+                      [class.group-hover:text-white]="iconStyle() === 'color-pop' && !item.textColorOnHover"
+                      [class.group-hover:text-black]="iconStyle() === 'color-pop' && item.textColorOnHover === '#000000'"
+                      [class.text-white]="iconStyle() === 'always-brand' && !item.textColorOnHover"
+                      [class.text-black]="iconStyle() === 'always-brand' && item.textColorOnHover === '#000000'"
+                      fill="currentColor"
+                    >
+                      <path [attr.d]="item.svgPath" />
+                    </svg>
+                  </div>
+
+                  <!-- Hover Tooltip -->
+                  <div class="absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none text-[11px] font-semibold px-2 py-0.5 rounded bg-slate-900 text-white shadow-md z-30 whitespace-nowrap">
+                    {{ item.name }}
+                  </div>
+                </div>
+              }
+            </div>
+
+            <!-- Bottom Live Stats info inside canvas -->
+            <div class="mt-12 flex flex-wrap items-center justify-center gap-4 text-xs">
+              <span
+                class="px-3 py-1 rounded-md"
+                [class.bg-slate-100]="previewBg() === 'light'"
+                [class.text-slate-700]="previewBg() === 'light'"
+                [class.bg-slate-800/80]="previewBg() !== 'light'"
+                [class.text-slate-300]="previewBg() !== 'light'"
+              >
+                Animation: <strong class="capitalize">{{ selectedAnimation() }}</strong>
+              </span>
+              <span
+                class="px-3 py-1 rounded-md"
+                [class.bg-slate-100]="previewBg() === 'light'"
+                [class.text-slate-700]="previewBg() === 'light'"
+                [class.bg-slate-800/80]="previewBg() !== 'light'"
+                [class.text-slate-300]="previewBg() !== 'light'"
+              >
+                Hover: <strong class="capitalize text-pink-500">{{ selectedHoverEffect() }}</strong>
+              </span>
+              <span
+                class="px-3 py-1 rounded-md"
+                [class.bg-slate-100]="previewBg() === 'light'"
+                [class.text-slate-700]="previewBg() === 'light'"
+                [class.bg-slate-800/80]="previewBg() !== 'light'"
+                [class.text-slate-300]="previewBg() !== 'light'"
+              >
+                Style: <strong class="capitalize">{{ iconStyle() }}</strong>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparative Matrix: See All 6 Hover Effects Side-by-Side -->
+        <div id="hover-matrix" class="rounded-2xl border border-slate-800 bg-slate-900/90 p-5 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-white flex items-center gap-2">
+              <mat-icon class="text-pink-400 text-base">compare_arrows</mat-icon>
+              @if (lang() === 'roman-urdu') {
+                <span>Tamam Hover Effects ka Live Muqabla (Hover to Test)</span>
+              } @else {
+                <span>Live Comparison of All 6 Hover Effects</span>
+              }
+            </h3>
+            <span class="text-xs text-slate-400 font-medium">Hover each row</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            
+            <!-- Effect: GROW (Recommended) -->
+            <button
+              type="button"
+              id="hover-choice-grow"
+              (click)="selectedHoverEffect.set('grow')"
+              class="w-full text-left p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between"
+              [class.bg-indigo-950/40]="selectedHoverEffect() === 'grow'"
+              [class.border-indigo-500/60]="selectedHoverEffect() === 'grow'"
+              [class.bg-slate-800/40]="selectedHoverEffect() !== 'grow'"
+              [class.border-slate-700/60]="selectedHoverEffect() !== 'grow'"
+            >
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <span class="font-bold text-sm text-white">Grow</span>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">BEST MATCH</span>
+                </div>
+                <p class="text-xs text-slate-400 mt-0.5">Smooth scale zoom (115%)</p>
+              </div>
+              <!-- Mini Demo Icon -->
+              <div class="group/mini w-11 h-11 rounded-full bg-slate-800 flex items-center justify-center transition-all duration-300 hover:scale-120 hover:bg-gradient-to-tr hover:from-pink-500 hover:to-indigo-500">
+                <mat-icon class="text-slate-300 group-hover/mini:text-white text-lg">camera_alt</mat-icon>
+              </div>
+            </button>
+
+            <!-- Effect: LIFT -->
+            <button
+              type="button"
+              id="hover-choice-lift"
+              (click)="selectedHoverEffect.set('lift')"
+              class="w-full text-left p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between"
+              [class.bg-indigo-950/40]="selectedHoverEffect() === 'lift'"
+              [class.border-indigo-500/60]="selectedHoverEffect() === 'lift'"
+              [class.bg-slate-800/40]="selectedHoverEffect() !== 'lift'"
+              [class.border-slate-700/60]="selectedHoverEffect() !== 'lift'"
+            >
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <span class="font-bold text-sm text-white">Lift</span>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-medium">POPULAR</span>
+                </div>
+                <p class="text-xs text-slate-400 mt-0.5">Translates -6px up + shadow</p>
+              </div>
+              <div class="group/mini w-11 h-11 rounded-full bg-slate-800 flex items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-cyan-500/30 hover:bg-[#00F2FE]">
+                <mat-icon class="text-slate-300 group-hover/mini:text-black text-lg">music_note</mat-icon>
+              </div>
+            </button>
+
+            <!-- Effect: GLOW -->
+            <button
+              type="button"
+              id="hover-choice-glow"
+              (click)="selectedHoverEffect.set('glow')"
+              class="w-full text-left p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between"
+              [class.bg-indigo-950/40]="selectedHoverEffect() === 'glow'"
+              [class.border-indigo-500/60]="selectedHoverEffect() === 'glow'"
+              [class.bg-slate-800/40]="selectedHoverEffect() !== 'glow'"
+              [class.border-slate-700/60]="selectedHoverEffect() !== 'glow'"
+            >
+              <div>
+                <span class="font-bold text-sm text-white">Glow</span>
+                <p class="text-xs text-slate-400 mt-0.5">Vibrant radial aura</p>
+              </div>
+              <div class="group/mini w-11 h-11 rounded-full bg-slate-800 flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_20px_#25D366] hover:bg-[#25D366]">
+                <mat-icon class="text-slate-300 group-hover/mini:text-white text-lg">chat</mat-icon>
+              </div>
+            </button>
+
+            <!-- Effect: SHINE -->
+            <button
+              type="button"
+              id="hover-choice-shine"
+              (click)="selectedHoverEffect.set('shine')"
+              class="w-full text-left p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between"
+              [class.bg-indigo-950/40]="selectedHoverEffect() === 'shine'"
+              [class.border-indigo-500/60]="selectedHoverEffect() === 'shine'"
+              [class.bg-slate-800/40]="selectedHoverEffect() !== 'shine'"
+              [class.border-slate-700/60]="selectedHoverEffect() !== 'shine'"
+            >
+              <div>
+                <span class="font-bold text-sm text-white">Shine</span>
+                <p class="text-xs text-slate-400 mt-0.5">Light flare flash sweep</p>
+              </div>
+              <div class="group/mini relative overflow-hidden w-11 h-11 rounded-full bg-slate-800 flex items-center justify-center transition-all duration-300 hover:bg-[#1877F2]">
+                <mat-icon class="text-slate-300 group-hover/mini:text-white text-lg">thumb_up</mat-icon>
+                <div class="absolute inset-0 pointer-events-none opacity-0 group-hover/mini:opacity-100">
+                  <div class="absolute -top-1/2 -bottom-1/2 w-1/2 bg-white/40 skew-x-[-25deg] transform group-hover/mini:translate-x-[250%] transition-transform duration-700"></div>
+                </div>
+              </div>
+            </button>
+
+            <!-- Effect: BORDER -->
+            <button
+              type="button"
+              id="hover-choice-border"
+              (click)="selectedHoverEffect.set('border')"
+              class="w-full text-left p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between"
+              [class.bg-indigo-950/40]="selectedHoverEffect() === 'border'"
+              [class.border-indigo-500/60]="selectedHoverEffect() === 'border'"
+              [class.bg-slate-800/40]="selectedHoverEffect() !== 'border'"
+              [class.border-slate-700/60]="selectedHoverEffect() !== 'border'"
+            >
+              <div>
+                <span class="font-bold text-sm text-white">Border</span>
+                <p class="text-xs text-slate-400 mt-0.5">Pulsing accent ring outline</p>
+              </div>
+              <div class="group/mini w-11 h-11 rounded-full bg-slate-800 flex items-center justify-center transition-all duration-300 hover:ring-4 hover:ring-pink-500 hover:bg-pink-500">
+                <mat-icon class="text-slate-300 group-hover/mini:text-white text-lg">play_arrow</mat-icon>
+              </div>
+            </button>
+
+            <!-- Effect: NONE -->
+            <button
+              type="button"
+              id="hover-choice-none"
+              (click)="selectedHoverEffect.set('none')"
+              class="w-full text-left p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between"
+              [class.bg-indigo-950/40]="selectedHoverEffect() === 'none'"
+              [class.border-indigo-500/60]="selectedHoverEffect() === 'none'"
+              [class.bg-slate-800/40]="selectedHoverEffect() !== 'none'"
+              [class.border-slate-700/60]="selectedHoverEffect() !== 'none'"
+            >
+              <div>
+                <span class="font-bold text-sm text-white">None</span>
+                <p class="text-xs text-slate-400 mt-0.5">Color fill only without movement</p>
+              </div>
+              <div class="group/mini w-11 h-11 rounded-full bg-slate-800 flex items-center justify-center transition-all duration-300 hover:bg-[#FF0000]">
+                <mat-icon class="text-slate-300 group-hover/mini:text-white text-lg">video_library</mat-icon>
+              </div>
+            </button>
+
+          </div>
+        </div>
+
+      </section>
+
+      <!-- RIGHT: Settings Modal (Exact replica of User's Web Builder Screen in Images 3 & 4) -->
+      <section id="builder-settings-panel" class="lg:col-span-5 space-y-6">
+        
+        <div class="rounded-2xl border border-slate-200 bg-white text-slate-900 shadow-2xl overflow-hidden">
+          
+          <!-- Modal Header (Mirrors Image 3) -->
+          <div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
+            <h2 class="text-base font-bold text-slate-900 tracking-tight">Social icon settings</h2>
+            <div class="w-7 h-7 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-400 cursor-pointer">
+              <mat-icon class="text-lg">close</mat-icon>
+            </div>
+          </div>
+
+          <!-- Navigation Tabs (Links, Style, Layout, Animation) -->
+          <div class="flex border-b border-slate-200 px-5 gap-6 text-sm font-medium">
+            <button
+              id="tab-links"
+              type="button"
+              (click)="activeTab.set('recommendation')"
+              [class]="activeTab() === 'recommendation' ? 'text-indigo-600 border-b-2 border-indigo-600 font-semibold' : 'text-slate-500 hover:text-slate-800'"
+              class="py-3 transition-colors cursor-pointer"
+            >
+              Advice
+            </button>
+            <button
+              id="tab-style"
+              type="button"
+              (click)="activeTab.set('style')"
+              [class]="activeTab() === 'style' ? 'text-indigo-600 border-b-2 border-indigo-600 font-semibold' : 'text-slate-500 hover:text-slate-800'"
+              class="py-3 transition-colors cursor-pointer"
+            >
+              Style
+            </button>
+            <button
+              id="tab-layout"
+              type="button"
+              (click)="activeTab.set('layout')"
+              [class]="activeTab() === 'layout' ? 'text-indigo-600 border-b-2 border-indigo-600 font-semibold' : 'text-slate-500 hover:text-slate-800'"
+              class="py-3 transition-colors cursor-pointer"
+            >
+              Layout
+            </button>
+            <button
+              id="tab-animation"
+              type="button"
+              (click)="activeTab.set('animation')"
+              [class]="activeTab() === 'animation' ? 'text-indigo-600 border-b-2 border-indigo-600 font-semibold' : 'text-slate-500 hover:text-slate-800'"
+              class="py-3 transition-colors cursor-pointer"
+            >
+              Animation
+            </button>
+          </div>
+
+          <!-- TAB CONTENT: ANIMATION (Image 3 & 4) -->
+          @if (activeTab() === 'animation') {
+            <div class="p-5 space-y-6">
+              
+              <!-- 8 Animation Choice Tiles -->
+              <div>
+                <span class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">
+                  Entrance Animation (Page Load)
+                </span>
+
+                <div class="grid grid-cols-2 gap-3">
+                  
+                  <!-- Option: No animation -->
+                  <button
+                    type="button"
+                    id="anim-opt-none"
+                    (click)="selectedAnimation.set('none'); replayAnimation()"
+                    class="p-3.5 rounded-xl border transition-all cursor-pointer text-center flex flex-col items-center justify-center gap-2 group w-full"
+                    [class.border-indigo-600]="selectedAnimation() === 'none'"
+                    [class.bg-indigo-50/70]="selectedAnimation() === 'none'"
+                    [class.border-slate-200]="selectedAnimation() !== 'none'"
+                    [class.hover:border-slate-300]="selectedAnimation() !== 'none'"
+                  >
+                    <div class="w-12 h-8 rounded border border-dashed border-slate-400 flex items-center justify-center text-slate-400">
+                      <mat-icon class="text-base">block</mat-icon>
+                    </div>
+                    <span class="text-xs font-medium text-slate-800">No animation</span>
+                  </button>
+
+                  <!-- Option: Fade -->
+                  <button
+                    type="button"
+                    id="anim-opt-fade"
+                    (click)="selectedAnimation.set('fade'); replayAnimation()"
+                    class="p-3.5 rounded-xl border transition-all cursor-pointer text-center flex flex-col items-center justify-center gap-2 group w-full"
+                    [class.border-indigo-600]="selectedAnimation() === 'fade'"
+                    [class.bg-indigo-50/70]="selectedAnimation() === 'fade'"
+                    [class.border-slate-200]="selectedAnimation() !== 'fade'"
+                    [class.hover:border-slate-300]="selectedAnimation() !== 'fade'"
+                  >
+                    <div class="w-12 h-8 rounded bg-gradient-to-r from-slate-200 to-slate-400 opacity-70"></div>
+                    <span class="text-xs font-medium text-slate-800">Fade</span>
+                  </button>
+
+                  <!-- Option: Slide -->
+                  <button
+                    type="button"
+                    id="anim-opt-slide"
+                    (click)="selectedAnimation.set('slide'); replayAnimation()"
+                    class="p-3.5 rounded-xl border transition-all cursor-pointer text-center flex flex-col items-center justify-center gap-2 group w-full"
+                    [class.border-indigo-600]="selectedAnimation() === 'slide'"
+                    [class.bg-indigo-50/70]="selectedAnimation() === 'slide'"
+                    [class.border-slate-200]="selectedAnimation() !== 'slide'"
+                    [class.hover:border-slate-300]="selectedAnimation() !== 'slide'"
+                  >
+                    <div class="relative w-12 h-8">
+                      <div class="absolute bottom-0 inset-x-1 h-5 bg-slate-300 rounded-sm"></div>
+                      <div class="absolute top-0 inset-x-0 h-6 bg-slate-500 rounded-sm"></div>
+                    </div>
+                    <span class="text-xs font-medium text-slate-800">Slide</span>
+                  </button>
+
+                  <!-- Option: Scale (Selected in user screenshot) -->
+                  <button
+                    type="button"
+                    id="anim-opt-scale"
+                    (click)="selectedAnimation.set('scale'); replayAnimation()"
+                    class="p-3.5 rounded-xl border-2 transition-all cursor-pointer text-center flex flex-col items-center justify-center gap-2 group relative w-full"
+                    [class.border-indigo-600]="selectedAnimation() === 'scale'"
+                    [class.bg-indigo-50/90]="selectedAnimation() === 'scale'"
+                    [class.border-slate-200]="selectedAnimation() !== 'scale'"
+                    [class.hover:border-slate-300]="selectedAnimation() !== 'scale'"
+                  >
+                    <span class="absolute -top-2 right-2 px-1.5 py-0.2 bg-indigo-600 text-white rounded text-[9px] font-bold">
+                      RECOMMENDED
+                    </span>
+                    <div class="relative w-12 h-8 flex items-center justify-center">
+                      <div class="absolute inset-0 border border-slate-300 rounded bg-slate-200/50"></div>
+                      <div class="w-8 h-5 bg-slate-500 rounded-xs shadow-xs"></div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-900">Scale</span>
+                  </button>
+
+                  <!-- Option: Slide left -->
+                  <button
+                    type="button"
+                    id="anim-opt-slide-left"
+                    (click)="selectedAnimation.set('slide-left'); replayAnimation()"
+                    class="p-3.5 rounded-xl border transition-all cursor-pointer text-center flex flex-col items-center justify-center gap-2 group w-full"
+                    [class.border-indigo-600]="selectedAnimation() === 'slide-left'"
+                    [class.bg-indigo-50/70]="selectedAnimation() === 'slide-left'"
+                    [class.border-slate-200]="selectedAnimation() !== 'slide-left'"
+                    [class.hover:border-slate-300]="selectedAnimation() !== 'slide-left'"
+                  >
+                    <div class="relative w-12 h-8 flex items-center">
+                      <div class="w-4 h-6 bg-slate-300 rounded-l"></div>
+                      <div class="w-8 h-6 bg-slate-500 rounded-r"></div>
+                    </div>
+                    <span class="text-xs font-medium text-slate-800">Slide left</span>
+                  </button>
+
+                  <!-- Option: Slide right -->
+                  <button
+                    type="button"
+                    id="anim-opt-slide-right"
+                    (click)="selectedAnimation.set('slide-right'); replayAnimation()"
+                    class="p-3.5 rounded-xl border transition-all cursor-pointer text-center flex flex-col items-center justify-center gap-2 group w-full"
+                    [class.border-indigo-600]="selectedAnimation() === 'slide-right'"
+                    [class.bg-indigo-50/70]="selectedAnimation() === 'slide-right'"
+                    [class.border-slate-200]="selectedAnimation() !== 'slide-right'"
+                    [class.hover:border-slate-300]="selectedAnimation() !== 'slide-right'"
+                  >
+                    <div class="relative w-12 h-8 flex items-center justify-end">
+                      <div class="w-8 h-6 bg-slate-500 rounded-l"></div>
+                      <div class="w-4 h-6 bg-slate-300 rounded-r"></div>
+                    </div>
+                    <span class="text-xs font-medium text-slate-800">Slide right</span>
+                  </button>
+
+                  <!-- Option: Blur in -->
+                  <button
+                    type="button"
+                    id="anim-opt-blur-in"
+                    (click)="selectedAnimation.set('blur-in'); replayAnimation()"
+                    class="p-3.5 rounded-xl border transition-all cursor-pointer text-center flex flex-col items-center justify-center gap-2 group w-full"
+                    [class.border-indigo-600]="selectedAnimation() === 'blur-in'"
+                    [class.bg-indigo-50/70]="selectedAnimation() === 'blur-in'"
+                    [class.border-slate-200]="selectedAnimation() !== 'blur-in'"
+                    [class.hover:border-slate-300]="selectedAnimation() !== 'blur-in'"
+                  >
+                    <div class="w-10 h-6 bg-slate-500 rounded blur-[2px]"></div>
+                    <span class="text-xs font-medium text-slate-800">Blur in</span>
+                  </button>
+
+                  <!-- Option: Rise -->
+                  <button
+                    type="button"
+                    id="anim-opt-rise"
+                    (click)="selectedAnimation.set('rise'); replayAnimation()"
+                    class="p-3.5 rounded-xl border transition-all cursor-pointer text-center flex flex-col items-center justify-center gap-2 group w-full"
+                    [class.border-indigo-600]="selectedAnimation() === 'rise'"
+                    [class.bg-indigo-50/70]="selectedAnimation() === 'rise'"
+                    [class.border-slate-200]="selectedAnimation() !== 'rise'"
+                    [class.hover:border-slate-300]="selectedAnimation() !== 'rise'"
+                  >
+                    <div class="relative w-12 h-8 flex flex-col items-center justify-end">
+                      <div class="w-10 h-2 bg-slate-300 rounded-xs mb-0.5"></div>
+                      <div class="w-10 h-4 bg-slate-500 rounded-xs"></div>
+                    </div>
+                    <span class="text-xs font-medium text-slate-800">Rise</span>
+                  </button>
+
+                </div>
+              </div>
+
+              <!-- Hover Effect Dropdown (Mirrors Image 4) -->
+              <div class="pt-2 border-t border-slate-100">
+                <span class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">
+                  Hover effect (Dropdown)
+                </span>
+
+                <div class="space-y-2">
+                  @for (eff of ['Grow', 'Lift', 'Glow', 'Shine', 'Border', 'None']; track eff) {
+                    @let effLower = eff.toLowerCase();
+                    <button
+                      type="button"
+                      [id]="'builder-hover-select-' + effLower"
+                      (click)="selectedHoverEffect.set(effLower === 'none' ? 'none' : effLower === 'grow' ? 'grow' : effLower === 'lift' ? 'lift' : effLower === 'glow' ? 'glow' : effLower === 'shine' ? 'shine' : 'border')"
+                      class="w-full px-4 py-2.5 rounded-lg border transition-all cursor-pointer flex items-center justify-between text-left"
+                      [class.bg-indigo-50]="selectedHoverEffect() === effLower"
+                      [class.border-indigo-600]="selectedHoverEffect() === effLower"
+                      [class.text-indigo-900]="selectedHoverEffect() === effLower"
+                      [class.font-bold]="selectedHoverEffect() === effLower"
+                      [class.border-slate-200]="selectedHoverEffect() !== effLower"
+                      [class.text-slate-700]="selectedHoverEffect() !== effLower"
+                      [class.hover:bg-slate-50]="selectedHoverEffect() !== effLower"
+                    >
+                      <div class="flex items-center gap-2">
+                        <span>{{ eff }}</span>
+                        @if (eff === 'Grow') {
+                          <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 font-bold">1st Choice</span>
+                        }
+                        @if (eff === 'Lift') {
+                          <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 font-medium">2nd Choice</span>
+                        }
+                      </div>
+
+                      @if (selectedHoverEffect() === effLower) {
+                        <mat-icon class="text-indigo-600 text-sm">check_circle</mat-icon>
+                      }
+                    </button>
+                  }
+                </div>
+              </div>
+
+            </div>
+          }
+
+          <!-- TAB CONTENT: STYLE -->
+          @if (activeTab() === 'style') {
+            <div class="p-5 space-y-5">
+              <div>
+                <span class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">
+                  Color Behavior
+                </span>
+                <div class="space-y-2">
+                  <button
+                    type="button"
+                    id="style-opt-color-pop"
+                    (click)="iconStyle.set('color-pop')"
+                    class="w-full text-left p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between"
+                    [class.border-indigo-600]="iconStyle() === 'color-pop'"
+                    [class.bg-indigo-50]="iconStyle() === 'color-pop'"
+                    [class.border-slate-200]="iconStyle() !== 'color-pop'"
+                  >
+                    <div>
+                      <p class="font-bold text-xs text-slate-900">Monochrome to Brand Color Pop</p>
+                      <p class="text-[11px] text-slate-500">Exact match to your screenshots (Image 1 &amp; 2)</p>
+                    </div>
+                    @if (iconStyle() === 'color-pop') {
+                      <mat-icon class="text-indigo-600 text-sm">check_circle</mat-icon>
+                    }
+                  </button>
+
+                  <button
+                    type="button"
+                    id="style-opt-always-brand"
+                    (click)="iconStyle.set('always-brand')"
+                    class="w-full text-left p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between"
+                    [class.border-indigo-600]="iconStyle() === 'always-brand'"
+                    [class.bg-indigo-50]="iconStyle() === 'always-brand'"
+                    [class.border-slate-200]="iconStyle() !== 'always-brand'"
+                  >
+                    <div>
+                      <p class="font-bold text-xs text-slate-900">Always Solid Brand Colors</p>
+                      <p class="text-[11px] text-slate-500">Permanent colorful circles</p>
+                    </div>
+                    @if (iconStyle() === 'always-brand') {
+                      <mat-icon class="text-indigo-600 text-sm">check_circle</mat-icon>
+                    }
+                  </button>
+
+                  <button
+                    type="button"
+                    id="style-opt-outline"
+                    (click)="iconStyle.set('outline')"
+                    class="w-full text-left p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between"
+                    [class.border-indigo-600]="iconStyle() === 'outline'"
+                    [class.bg-indigo-50]="iconStyle() === 'outline'"
+                    [class.border-slate-200]="iconStyle() !== 'outline'"
+                  >
+                    <div>
+                      <p class="font-bold text-xs text-slate-900">Subtle Outline</p>
+                      <p class="text-[11px] text-slate-500">Outlined border with hover fill</p>
+                    </div>
+                    @if (iconStyle() === 'outline') {
+                      <mat-icon class="text-indigo-600 text-sm">check_circle</mat-icon>
+                    }
+                  </button>
+                </div>
+              </div>
+
+              <!-- Shape selection -->
+              <div class="pt-3 border-t border-slate-100">
+                <span class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">
+                  Icon Shape
+                </span>
+                <div class="grid grid-cols-3 gap-2 text-xs">
+                  <button
+                    type="button"
+                    id="shape-btn-circle"
+                    (click)="shape.set('circle')"
+                    [class]="shape() === 'circle' ? 'bg-indigo-600 text-white font-bold' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                    class="py-2 px-3 rounded-lg transition-all text-center cursor-pointer"
+                  >
+                    Circle (Round)
+                  </button>
+                  <button
+                    type="button"
+                    id="shape-btn-squircle"
+                    (click)="shape.set('squircle')"
+                    [class]="shape() === 'squircle' ? 'bg-indigo-600 text-white font-bold' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                    class="py-2 px-3 rounded-lg transition-all text-center cursor-pointer"
+                  >
+                    Squircle
+                  </button>
+                  <button
+                    type="button"
+                    id="shape-btn-minimal"
+                    (click)="shape.set('minimal')"
+                    [class]="shape() === 'minimal' ? 'bg-indigo-600 text-white font-bold' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'"
+                    class="py-2 px-3 rounded-lg transition-all text-center cursor-pointer"
+                  >
+                    Minimal
+                  </button>
+                </div>
+              </div>
+            </div>
+          }
+
+          <!-- TAB CONTENT: LAYOUT -->
+          @if (activeTab() === 'layout') {
+            <div class="p-5 space-y-4">
+              <div>
+                <label for="input-icon-size" class="flex justify-between text-xs font-semibold text-slate-700 mb-1">
+                  <span>Icon Size</span>
+                  <span>{{ iconSize() }}px</span>
+                </label>
+                <input
+                  id="input-icon-size"
+                  type="range"
+                  min="32"
+                  max="64"
+                  [value]="iconSize()"
+                  (input)="iconSize.set(+$any($event.target).value)"
+                  class="w-full accent-indigo-600 cursor-pointer"
+                />
+              </div>
+
+              <div>
+                <label for="input-gap-size" class="flex justify-between text-xs font-semibold text-slate-700 mb-1">
+                  <span>Icon Spacing / Gap</span>
+                  <span>{{ gapSize() }}px</span>
+                </label>
+                <input
+                  id="input-gap-size"
+                  type="range"
+                  min="8"
+                  max="32"
+                  [value]="gapSize()"
+                  (input)="gapSize.set(+$any($event.target).value)"
+                  class="w-full accent-indigo-600 cursor-pointer"
+                />
+              </div>
+            </div>
+          }
+
+          <!-- TAB CONTENT: ADVICE & RECOMMENDATION DETAILS -->
+          @if (activeTab() === 'recommendation') {
+            <div class="p-5 space-y-4 text-xs text-slate-700 leading-relaxed">
+              @if (lang() === 'roman-urdu') {
+                <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl space-y-1">
+                  <p class="font-bold text-emerald-800 flex items-center gap-1">
+                    <mat-icon class="text-sm">verified</mat-icon>
+                    Final Recommendation for Wix / Website:
+                  </p>
+                  <p class="text-emerald-900 text-xs">
+                    1. <strong>Animation Tab me:</strong> Select <strong>&quot;Scale&quot;</strong> (Ye icons ko pop karke screen par laata hai).<br>
+                    2. <strong>Hover effect me:</strong> Select <strong>&quot;Grow&quot;</strong> (Ye Instagram/TikTok par mouse aane par circle ko expand karta hai) ya <strong>&quot;Lift&quot;</strong> (Agar halka ooper uthana chahein).
+                  </p>
+                </div>
+
+                <div class="space-y-2">
+                  <h4 class="font-bold text-slate-900 text-sm">Wajah (Why this combination?):</h4>
+                  <ul class="list-disc pl-4 space-y-1 text-slate-600">
+                    <li><strong>Scale Entrance:</strong> Social icons chhote hotay hain, is liye <code>Scale</code> animation unko natural popping feel deti hai.</li>
+                    <li><strong>Grow Hover Effect:</strong> Jab user Instagram ya TikTok par mouse le jata hai, toh <code>Grow</code> effect (1.15x scale) circular gradient ke saath mil kar authentic modern look banata hai jaise aapki pehli aur doosri image me dikh raha hai!</li>
+                  </ul>
+                </div>
+              } @else {
+                <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl space-y-1">
+                  <p class="font-bold text-emerald-800 flex items-center gap-1">
+                    <mat-icon class="text-sm">verified</mat-icon>
+                    Final Recommendation for Your Website:
+                  </p>
+                  <p class="text-emerald-900 text-xs">
+                    1. <strong>In Animation Tab:</strong> Choose <strong>&quot;Scale&quot;</strong> (already selected in your screenshot 3).<br>
+                    2. <strong>In Hover Effect:</strong> Choose <strong>&quot;Grow&quot;</strong> (or <strong>&quot;Lift&quot;</strong>) to achieve the exact circular expansion seen in images 1 &amp; 2.
+                  </p>
+                </div>
+
+                <div class="space-y-2">
+                  <h4 class="font-bold text-slate-900 text-sm">Design Reasoning:</h4>
+                  <ul class="list-disc pl-4 space-y-1 text-slate-600">
+                    <li><strong>Scale Animation:</strong> Gives small icon badges a dynamic, playful entry when the page loads.</li>
+                    <li><strong>Grow Hover Effect:</strong> Provides a focal zoom effect, highlighting the active brand color (e.g. Instagram sunset gradient or TikTok cyan glow) seamlessly.</li>
+                  </ul>
+                </div>
+              }
+
+              <button
+                type="button"
+                id="btn-goto-anim-tab"
+                (click)="activeTab.set('animation')"
+                class="w-full py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-center transition-all cursor-pointer"
+              >
+                Go to Animation Settings Tab
+              </button>
+            </div>
+          }
+
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- Code Export & Implementation Details -->
+    <section id="code-export" class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 sm:p-6 space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <mat-icon class="text-indigo-400 text-lg">code</mat-icon>
+            <span>Custom CSS / HTML Snippet (Optional for Custom Code / Wix Embed)</span>
+          </h3>
+          <p class="text-xs text-slate-400">Copy ready-made CSS for the exact Instagram gradient, TikTok cyan, and Grow hover animation.</p>
+        </div>
+
+        <button
+          id="btn-copy-code"
+          type="button"
+          (click)="copyCode()"
+          class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer shadow-md"
+        >
+          <mat-icon class="text-sm">{{ copiedCode() ? 'check' : 'content_copy' }}</mat-icon>
+          <span>{{ copiedCode() ? 'Copied to Clipboard!' : 'Copy CSS Snippet' }}</span>
+        </button>
+      </div>
+
+      <div class="relative rounded-xl bg-slate-950 border border-slate-800 p-4 font-mono text-xs text-slate-300 overflow-x-auto max-h-60">
+        <pre><code>{{ generatedCode() }}</code></pre>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Note -->
+  <footer class="border-t border-slate-900 bg-slate-950/80 py-4 text-center text-xs text-slate-500">
+    Social Icon Animation &amp; Hover Studio • Real-time Interactive Recommendation &amp; Previewer
+  </footer>
+</div>
